@@ -5,9 +5,13 @@
         $login_user = $_SESSION["login_user"];
     }
     $i_board = $_GET["i_board"];
+    $page= $_GET["page"];
+    $search_txt= $_GET["search_txt"];
+
     $param = [
         "i_board" => $i_board
     ];
+
     $item = sel_board($param);
 ?>
 <!DOCTYPE html>
@@ -19,14 +23,14 @@
     <title><?=$item["title"]?></title>
 </head>
 <body>
-    <div><a href="list.php">리스트</a></div>
+    <div><a href="list.php?page=<?=$page?><?=$search_txt !== "" ? "&search_txt=$search_txt" : "" ?>">리스트</a></div>
     <?php if(isset($_SESSION["login_user"]) && $login_user["i_user"] === $item["i_user"]) { ?>
         <div>
             <a href="mod.php"><button>수정</button></a>
             <button onclick="isDel();">삭제</button>
         </div>
     <?php } ?>
-    <div>제목 : <?=$item["title"]?></div>
+    <div>제목 : <?=str_replace($search_txt, "<mark>{$search_txt}</mark>", $item["title"])?></div>
     <div>글쓴이 : <?=$item["nm"]?></div>
     <div>등록일시 : <?=$item["created_at"]?></div>
     <div><?=$item["ctnt"]?></div>
