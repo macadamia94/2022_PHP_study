@@ -1,10 +1,12 @@
 <?php
-$x = 10;
+    $x = 10;
 
-foreach($GLOBALS as $key => $var)
-{
-    print $key . " : ";
-    print $var;
-    print "<br>";
-}
-?>
+    foreach($GLOBALS as $key => $var)
+    {
+        print $key . " : ";
+        print_r($var);
+        print "<br>";
+    }
+
+    $arr = [];
+    print_r($arr);
