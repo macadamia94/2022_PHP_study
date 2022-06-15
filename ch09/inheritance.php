@@ -1,4 +1,5 @@
 <?php
+// 원래는 php파일 하나에 class하나가 원칙 (관리하기도 좋음)
     class People {
         protected $name;
         protected $age;

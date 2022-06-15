@@ -26,7 +26,7 @@ class Fruit {
     }
 }
 
-$apple1 = (new Fruit)->setName("사과"); // 빨간줄 뜨지만 문제 없음
+$apple1 = (new Fruit)->setName("사과"); // 빨간줄 떠도 문제 없음
 $apple1->print_fruit();
 
 // 빌드패턴

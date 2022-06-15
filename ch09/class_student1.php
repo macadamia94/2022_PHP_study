@@ -31,6 +31,7 @@
     }
 
     $obj = new Student; // 설계도대로 만든 것 ($속성명 = new class명)
+    // obj에 class의 주소값이 들어감
     $obj->studentId = 20171234;
     $obj->studentName = "Alice";
 
