@@ -8,7 +8,7 @@
     if(($result = socket_connect($sock, $address, $service_port)) == false) {
         echo "socket_connect() failed: reason : " . socket_strerror($result) . "<br>";
     }
-    $in = "Apple Orange Banana Pear";
+    $in = "Hello, My name is Hong!!!";
     $out = "";
     socket_write($sock, $in, strlen($in));
     echo "Send data : $in <br>";
