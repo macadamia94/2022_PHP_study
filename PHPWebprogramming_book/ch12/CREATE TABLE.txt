@@ -1,7 +1,0 @@
-CREATE TABLE fruit (
-  name varchar(20) DEFAULT '' NOT NULL,
-  price int(10),
-  color varchar(20),
-  country varchar(20),
-  PRIMARY KEY (name)
-);
