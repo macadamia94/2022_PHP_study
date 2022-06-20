@@ -21,6 +21,6 @@ class Application{
             exit();
         }
         $controllerName = 'application\controllers\\' . $controller . 'controller';        
-        new $controllerName($action);
+        new $controllerName($action); // Controller.php 생성자 함수(__construct) 호출 
     }
 }
