@@ -14,7 +14,6 @@
             <th>제목</th>
             <th>작성일</th>
         </tr>
-    </table>
     <?php foreach($this->list as $item) { ?>
         <tr>
             <td><?=$item->i_board?></td>
@@ -22,5 +21,6 @@
             <td><?=$item->created_at?></td>
         </tr>
     <?php } ?>
+    </table>
 </body>
 </html>
