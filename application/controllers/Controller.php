@@ -14,6 +14,7 @@ abstract class Controller {
     protected function getView($view) {
         if(strpos($view, "redirect:") === 0) {
             header("Location: http://" . _HOST . substr($view, 9));
+            return;
         }
         return _VIEW . $view;
     }       // _VIEW : 쌍따옴표(""), 달러($)도 없고 전부 대문자인 경우는 상수를 의미

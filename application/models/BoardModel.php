@@ -14,4 +14,25 @@ class BoardModel extends Model {
         // fetchAll 배열로 넘어오지만 배열 방 안에 넘어오는 것은 객체
         
     }
+
+    public function selBoard(&$param) {
+        $sql = "SELECT B.*
+                     , U.i_user, U.nm
+                  FROM t_board B
+                 INNER JOIN t_user U
+                    ON B.i_user = U.i_user
+                 WHERE i_board = :i_board";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':i_board', $param["i_board"]);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function delBoard(&$param) {
+        $sql = "DELETE FROM t_board
+                 WHERE i_board = :i_board";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':i_board', $param["i_board"]);
+        return $stmt->execute(); // 가져올 값이 없기때문에 execute()까지만 하면 됨
+    }
 }
