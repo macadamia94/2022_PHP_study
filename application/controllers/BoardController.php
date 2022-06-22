@@ -8,7 +8,7 @@ class BoardController extends Controller {
         $model = new BoardModel();
         $this->addAttribute(_TITLE, "리스트");
         $this->addAttribute("list", $model->selBoardList()); // $this->list = $model->selBoardList();
-        $this->addAttribute("js", ["board/list"]);
+        $this->addAttribute(_JS, ["board/list"]);
         $this->addAttribute(_HEADER, $this->getView("template/header.php"));
         $this->addAttribute(_MAIN, $this->getView("board/list.php"));
         $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
@@ -61,5 +61,28 @@ class BoardController extends Controller {
         $model = new BoardModel();
         $model->updProc($param);
         return "redirect:/board/detail?i_board={$i_board}";  
+    }
+
+    public function write() {
+        $model = new BoardModel();
+        $this->addAttribute(_TITLE, "글쓰기");
+        $this->addAttribute(_HEADER, $this->getView("template/header.php"));
+        $this->addAttribute(_MAIN, $this->getView("board/write.php"));
+        $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
+        return "template/t1.php";
+    }
+
+    public function writeProc() {
+        $i_user = $_SESSION[_LOGINUSER]->i_user;
+        $title = $_POST["title"];
+        $ctnt = $_POST["ctnt"];
+        $param = [
+            "i_user"=> $i_user,
+            "title" => $title,
+            "ctnt" => $ctnt
+        ];
+        $model = new BoardModel();
+        $model->insBoard($param);
+        return "redirect:/board/list";  
     }
 }
