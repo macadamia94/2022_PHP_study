@@ -1,17 +1,27 @@
-<h1><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-<?php include_once "application/views/template/head.php"; ?>
 
 <body>
-    <h1>디테일</h1>
     <div>
-        <button id="btnDel" data-i_board="<?=$this->data->i_board?>">삭제</button>
-        <a href="mod?i_board=<?=$this->data->i_board?>"><button>수정</button></a>
+        <button id="btnDel" data-i_board="<?=$this->data->i_board?>">delete</button>
+        <a href="mod?i_board=<?$this->data->i_board?>"><button>modify</button></a>
     </div>
-    <div>글번호 : <?=$this->data->i_board?></div>
-    <div>제목 : <?=$this->data->title?></div>
-    <div>내용 : <?=$this->data->ctnt?></div>
-    <div>작성자 : <?=$this->data->nm?></div>
-    <div>작성일 : <?=$this->data->created_at?></div>
+    <table id="container">
+        <tr>
+            <td colspan="4" class="writer"><h2>Details | <?=$this->data->nm?></h2></td>
+        </tr>        
+        <tr>
+            <td colspan="4" class="title"><?=$this->data->title?></td>
+        </tr>
+        <tr>
+            <th class="read">Num</th>
+            <td class="read2"><?=$this->data->i_board?></td>
+            <th class="read">Created At</th>
+            <td class="read2"><?=$this->data->created_at?></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="ctnt"><?=$this->data->ctnt?></td>
+        </tr>
+    </table>
 </body>
 </html>
