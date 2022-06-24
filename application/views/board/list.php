@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include_once "application/views/template/head.php"; ?>
 
 <body>
-    <h1>LIST</h1>
+    <h1>리스트</h1>
     <table>
         <thead>
             <tr>
@@ -12,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($this->list as $item) {?>
+            <?php foreach($this->list as $item) { ?>
             <tr data-i_board="<?=$item->i_board?>">
                 <td><?=$item->i_board?></td>
                 <td><?=$item->title?></td>
